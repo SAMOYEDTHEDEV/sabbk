@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="SABKU — สำนักงานบริหารนิสิต มหาวิทยาลัยเกษตรศาสตร์ บางเขน ศูนย์กลางข่าวสาร กิจกรรม และโอกาสสำหรับนิสิต" />
+  <meta name="theme-color" content="#080e0b" />
+  <title>SABKU — ศูนย์กลางนิสิต มก. บางเขน</title>
+
+  <!-- Favicon placeholder -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%23006633'/><text y='22' x='4' font-size='16' font-family='sans-serif' font-weight='bold' fill='%2300ff99'>S</text></svg>" />
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ─────────────────────────────────
+       LOADING SCREEN
+  ───────────────────────────────── -->
+  <div id="loading-screen" role="status" aria-label="กำลังโหลด">
+    <div class="loader-logo">SABKU</div>
+    <div class="loader-bar"></div>
+  </div>
+
+  <!-- ─────────────────────────────────
+       NAVBAR
+  ───────────────────────────────── -->
+  <nav id="navbar" role="navigation" aria-label="เมนูหลัก">
+    <div class="nav-inner">
+
+      <!-- Logo -->
+      <a href="#hero" class="nav-logo" aria-label="SABKU หน้าแรก">
+        <div class="logo-mark">KU</div>
+        <span class="logo-text"><span>SAB</span>KU</span>
+      </a>
+
+      <!-- Desktop links -->
+      <ul class="nav-links">
+        <li><a href="#hero"       class="active">หน้าแรก</a></li>
+        <li><a href="#news">ข่าวสาร</a></li>
+        <li><a href="#activities">กิจกรรม</a></li>
+        <li><a href="#footer"     class="nav-cta">ติดต่อเรา</a></li>
+      </ul>
+
+      <!-- Hamburger (mobile) -->
+      <button class="hamburger" aria-label="เปิดเมนู" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile drawer -->
+  <div class="nav-drawer" aria-hidden="true">
+    <ul>
+      <li><a href="#hero">หน้าแรก</a></li>
+      <li><a href="#news">ข่าวสาร</a></li>
+      <li><a href="#activities">กิจกรรม</a></li>
+      <li><a href="#footer">ติดต่อเรา</a></li>
+    </ul>
+  </div>
+
+  <!-- ─────────────────────────────────
+       HERO
+  ───────────────────────────────── -->
+  <section id="hero" aria-labelledby="hero-heading">
+    <!-- Animated background -->
+    <div class="hero-bg" aria-hidden="true">
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+      <div class="orb orb-3"></div>
+    </div>
+
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        Student Administrative Board · Kasetsart University Bangkhen
+      </div>
+
+      <h1 class="hero-title" id="hero-heading">
+        ศูนย์กลางนิสิต<br>
+        <span class="highlight">มก. บางเขน</span>
+      </h1>
+
+      <p class="hero-subtitle">
+        ข่าวสาร<span class="sep">•</span>กิจกรรม<span class="sep">•</span>โอกาส
+      </p>
+
+      <div class="hero-actions">
+        <button id="hero-cta" class="btn btn-primary">
+          <span class="btn-icon">📢</span>
+          ดูข่าวล่าสุด
+        </button>
+        <a href="#activities" class="btn btn-ghost">
+          <span class="btn-icon">📸</span>
+          กิจกรรมของเรา
+        </a>
+      </div>
+    </div>
+
+    <!-- Scroll hint -->
+    <div class="scroll-hint" aria-hidden="true">
+      <span>เลื่อนลง</span>
+      <div class="scroll-arrow"></div>
+    </div>
+  </section>
+
+  <!-- ─────────────────────────────────
+       NEWS SECTION
+  ───────────────────────────────── -->
+  <section id="news" aria-labelledby="news-heading">
+    <div class="section-inner">
+      <div class="news-header">
+        <div>
+          <div class="section-label reveal">ข่าวสารล่าสุด</div>
+          <h2 class="section-title reveal reveal-delay-1" id="news-heading">ติดตามทุกความเคลื่อนไหว</h2>
+          <p class="section-desc reveal reveal-delay-2">ข่าวประกาศ กิจกรรม และโอกาสสำหรับนิสิต มก. บางเขน อัปเดตทุกสัปดาห์</p>
+        </div>
+
+        <!-- Search bar -->
+        <div class="search-wrap reveal reveal-delay-3" role="search">
+          <input
+            type="search"
+            id="news-search"
+            placeholder="ค้นหาข่าว..."
+            aria-label="ค้นหาข่าว"
+            autocomplete="off"
+          />
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/>
+          </svg>
+        </div>
+      </div>
+
+      <!-- Cards rendered by JS -->
+      <div id="news-grid" class="news-grid" role="list" aria-live="polite" aria-label="รายการข่าว">
+        <!-- Loading state -->
+        <p style="color:var(--text-dim);padding:2rem 0;">กำลังโหลดข่าว…</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────────────────────────────
+       ACTIVITIES SECTION
+  ───────────────────────────────── -->
+  <section id="activities" aria-labelledby="activities-heading">
+    <div class="section-inner">
+      <div class="section-label reveal">กิจกรรม</div>
+      <h2 class="section-title reveal reveal-delay-1" id="activities-heading">ภาพกิจกรรมของเรา</h2>
+      <p class="section-desc reveal reveal-delay-2" style="margin-bottom:2.5rem">รวบรวมความทรงจำดีๆ จากกิจกรรมนิสิต มก. บางเขน ตลอดปีการศึกษา</p>
+
+      <!-- Gallery items injected by JS -->
+      <div id="gallery-grid" class="gallery-grid" role="list" aria-label="แกลเลอรีกิจกรรม"></div>
+    </div>
+  </section>
+
+  <!-- ─────────────────────────────────
+       FOOTER
+  ───────────────────────────────── -->
+  <footer id="footer" role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-grid">
+
+        <!-- Brand -->
+        <div class="footer-brand">
+          <a href="#hero" class="nav-logo" style="margin-bottom:0.8rem;display:inline-flex">
+            <div class="logo-mark">KU</div>
+            <span class="logo-text"><span>SAB</span>KU</span>
+          </a>
+          <p>สำนักงานบริหารนิสิต มหาวิทยาลัยเกษตรศาสตร์ บางเขน ขับเคลื่อนกิจกรรมและโอกาสเพื่อนิสิตทุกคน</p>
+          <div class="social-links">
+            <a href="https://www.facebook.com" target="_blank" rel="noopener" class="social-link" aria-label="Facebook SABKU">
+              <!-- Facebook icon -->
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+            </a>
+            <a href="https://www.instagram.com" target="_blank" rel="noopener" class="social-link" aria-label="Instagram SABKU">
+              <!-- Instagram icon -->
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+            <a href="https://line.me" target="_blank" rel="noopener" class="social-link" aria-label="LINE SABKU">
+              <!-- Line-ish icon -->
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M22 10.3c0-4.5-4.5-8.1-10-8.1S2 5.8 2 10.3c0 4 3.6 7.4 8.4 8l.6.1v-2.1c-4.4-.7-7-3.3-7-6 0-3.3 3.4-6 8-6s8 2.7 8 6c0 1.5-.7 2.9-2 4-.1.1-.2.2-.2.3v2.1l.6-.1c1.8-.4 4.6-2 4.6-6.3z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Quick links -->
+        <div class="footer-col">
+          <h4>เมนู</h4>
+          <ul>
+            <li><a href="#hero">หน้าแรก</a></li>
+            <li><a href="#news">ข่าวสาร</a></li>
+            <li><a href="#activities">กิจกรรม</a></li>
+            <li><a href="#footer">ติดต่อเรา</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact -->
+        <div class="footer-col footer-contact">
+          <h4>ติดต่อ</h4>
+          <p>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            50 ถนนงามวงศ์วาน แขวงลาดยาว เขตจตุจักร กรุงเทพฯ 10900
+          </p>
+          <p>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.72A2 2 0 012.18 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.08 6.08l1.27-.61a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+            02-942-8200
+          </p>
+          <p>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            sabku@ku.th
+          </p>
+        </div>
+      </div>
+
+      <!-- Bottom bar -->
+      <div class="footer-bottom">
+        <p>© 2568 SABKU · สงวนลิขสิทธิ์ · <a href="https://ku.ac.th" target="_blank" rel="noopener">มหาวิทยาลัยเกษตรศาสตร์</a></p>
+        <div class="ku-credit">
+          <span class="ku-badge">KU</span>
+          Kasetsart University Bangkhen
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ─────────────────────────────────
+       NEWS MODAL
+  ───────────────────────────────── -->
+  <div id="modal-overlay" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-box">
+      <button class="modal-close" aria-label="ปิด">✕</button>
+      <p class="modal-category" id="modal-category"></p>
+      <h2 class="modal-title" id="modal-title"></h2>
+      <p class="modal-date" id="modal-date"></p>
+      <div class="modal-divider"></div>
+      <p class="modal-content" id="modal-content"></p>
+    </div>
+  </div>
+
+  <!-- ─────────────────────────────────
+       LIGHTBOX
+  ───────────────────────────────── -->
+  <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="ขยายรูปภาพ">
+    <div class="lightbox-inner" style="position:relative;display:flex;align-items:center;justify-content:center">
+      <img id="lightbox-img" src="" alt="" style="display:none" />
+    </div>
+    <button class="lightbox-close" aria-label="ปิด">✕</button>
+  </div>
+
+  <!-- Script -->
+  <script src="script.js"></script>
+</body>
+</html>
